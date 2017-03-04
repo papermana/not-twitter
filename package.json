@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Dominik Rowicki <dominik.rowicki@netguru.co>",
   "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.0"
+  },
   "devDependencies": {
     "@papermana/eslint-config-personal": "papermana/eslint-config-personal",
     "eslint": "^3.17.0"
