@@ -1,0 +1,11 @@
+{
+  "name": "node-f2f-goal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dominik Rowicki <dominik.rowicki@netguru.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "@papermana/eslint-config-personal": "papermana/eslint-config-personal",
+    "eslint": "^3.17.0"
+  }
+}

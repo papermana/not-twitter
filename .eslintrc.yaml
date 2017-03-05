@@ -1,0 +1,10 @@
+---
+extends:
+  - '@papermana/eslint-config-personal'
+parserOptions:
+  sourceType: 'module'
+env:
+  node: true
+  jest: true
+rules:
+  no-shadow: 0
