@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon index.js",
-    "db": "mongod --dbpath=db/ --port 27017"
+    "db": "mongod --dbpath=db/ --port 27017",
+    "test-db": "mongod --dbpath=db-test/ --port 27018",
+    "test": "jest --runInBand --forceExit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@papermana/eslint-config-personal": "papermana/eslint-config-personal",
     "eslint": "^3.17.0",
+    "jest": "^19.0.2",
     "nodemon": "^1.11.0"
   }
 }
