@@ -25,6 +25,7 @@
     "@papermana/eslint-config-personal": "papermana/eslint-config-personal",
     "eslint": "^3.17.0",
     "jest": "^19.0.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }
