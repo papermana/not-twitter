@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 const app = express();
 
 const consts = require('./app/constants');
+const mongoUrl = process.env.MONGODB_URI || consts.mongoUrl;
 const routes = {
   index: require('./app'),
   login: require('./app/login'),
@@ -24,7 +25,7 @@ const routes = {
   newMessage: require('./app/newmessage'),
 };
 
-MongoClient.connect(consts.mongoUrl, (err, db) => {
+MongoClient.connect(mongoUrl, (err, db) => {
   if (err) {
     throw err;
   }
@@ -46,5 +47,5 @@ MongoClient.connect(consts.mongoUrl, (err, db) => {
     app.use('/', routes[route]({db, passport}));
   });
 
-  app.listen(3001);
+  app.listen(process.env.PORT || 3001);
 });

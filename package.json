@@ -4,8 +4,12 @@
   "main": "index.js",
   "author": "Dominik Rowicki <dominik.rowicki@netguru.co>",
   "license": "MIT",
+  "engines": {
+    "node": "7.7.2"
+  },
   "scripts": {
     "start": "nodemon index.js",
+    "production": "node index.js",
     "db": "mongod --dbpath=db/ --port 27017",
     "test-db": "mongod --dbpath=db-test/ --port 27018",
     "test": "jest --runInBand --forceExit"
