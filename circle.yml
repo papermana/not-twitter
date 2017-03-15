@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 7.7.2
+dependencies:
+  override:
+    - yarn install
+database:
+  override:
+    - mkdir db-test/
+    - yarn run test-db:
+        background: true
+    - sleep 5
+test:
+  override:
+    - yarn test
