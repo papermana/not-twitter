@@ -8,7 +8,7 @@ const {
 } = require('mongodb');
 const request = require('supertest');
 const index = require('../index');
-const consts = require('../constants.js');
+const consts = require('../../constants.js');
 
 const getDb = MongoClient.connect(consts.mongoTestingUrl);
 const getEnv = ({username} = {}) => (

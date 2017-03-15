@@ -1,27 +1,52 @@
+const bodyParser = require('body-parser');
+const {
+  MongoClient,
+} = require('mongodb');
 const express = require('express');
-const pug = require('pug');
+const expressSession = require('express-session');
+const methodOverride = require('method-override');
 
-module.exports = ({db}) => {
-  const router = new express.Router();
+const getPassport = require('./configurePassport');
+const consts = require('./constants');
+const mongoUrl = process.env.MONGODB_URI || consts.mongoUrl;
+const routes = {
+  index: require('./routes'),
+  login: require('./routes/login'),
+  loginpost: require('./routes/login/post'),
+  logout: require('./routes/logout'),
+  signup: require('./routes/signup'),
+  users: require('./routes/users'),
+  usersShow: require('./routes/users/show'),
+  usersDelete: require('./routes/users/delete'),
+  newUser: require('./routes/newuser'),
+  messages: require('./routes/messages'),
+  messagesShow: require('./routes/messages/show'),
+  messagesDelete: require('./routes/messages/delete'),
+  newMessage: require('./routes/newmessage'),
+};
 
-  router.get('/', (req, res) => {
-    const userData = req.user || {};
+MongoClient.connect(mongoUrl, (err, db) => {
+  if (err) {
+    throw err;
+  }
 
-    db.collection('messages')
-    .find()
-    .limit(20)
-    .toArray()
-    .then(messages => {
-      const locals = {
-        username: userData.username,
-        signedIn: !!userData.username,
-        messages,
-      };
-      const html = pug.renderFile('pages/index.pug', locals);
+  const app = express();
+  const passport = getPassport(db);
 
-      res.send(html);
-    });
+  app.use(express.static('public'));
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(methodOverride('_method'));
+  app.use(expressSession({
+    secret: 'secretino',
+    resave: false,
+    saveUninitialized: false,
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  Object.keys(routes).forEach(route => {
+    app.use('/', routes[route]({db, passport}));
   });
 
-  return router;
-};
+  app.listen(process.env.PORT || 3001);
+});

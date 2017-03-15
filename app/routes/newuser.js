@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const validatePassword = require('./validatePassword');
+const validatePassword = require('../validatePassword');
 
 const router = new express.Router();
 

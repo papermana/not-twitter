@@ -5,7 +5,7 @@ const {
 } = require('mongodb');
 const request = require('supertest');
 const usersDelete = require('../delete');
-const consts = require('../../constants.js');
+const consts = require('../../../constants.js');
 
 const username = 'foo';
 const password = 'password';
