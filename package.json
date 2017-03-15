@@ -12,7 +12,8 @@
     "production": "node app/index.js",
     "db": "mongod --dbpath=db/ --port 27017",
     "test-db": "mongod --dbpath=db-test/ --port 27018",
-    "test": "jest --runInBand --forceExit"
+    "test": "jest --runInBand --forceExit",
+    "lint": "eslint app/"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
