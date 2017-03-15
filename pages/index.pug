@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+  include header.pug
+  main
+    if signedIn
+      p= `hello! ${username}`
+    else
+      p hello!
+    p this is not Twitter. you know what to do
+    if signedIn
+      form(action='/newmessage?_method=post' method='post')
+        input(name='body' type='text' max-length=140)
+        input(type='submit')
+    if messages
+      for m in messages
+        div
+          p= m.author
+          if m.author == username
+            form(action=`/messages/${m._id}?_method=delete` method='post')
+              button(type='submit') X
+          p= m.body
+          br

@@ -1,0 +1,8 @@
+header
+  h1 notTwitter
+  if signedIn
+    span= `Hello, ${username}`
+  else
+    a(href='/login') log in
+    = ` | `
+    a(href='/signup') make an account

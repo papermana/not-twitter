@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+  include header.pug
+  p make an account
+  form(action='/newuser' method='post')
+    input(type='text' name='username' placeholder='name')
+    input(type='password' name='password' placeholder='password')
+    input(type='submit')
