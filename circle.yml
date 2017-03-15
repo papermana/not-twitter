@@ -13,3 +13,8 @@ database:
 test:
   override:
     - yarn test
+deployment:
+  staging:
+      branch: master
+      heroku:
+        appname: not-twitter-f2f
