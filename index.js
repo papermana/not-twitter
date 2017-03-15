@@ -12,6 +12,7 @@ const routes = {
   index: require('./app'),
   login: require('./app/login'),
   loginpost: require('./app/login/post'),
+  logout: require('./app/logout'),
   signup: require('./app/signup'),
   users: require('./app/users'),
   usersShow: require('./app/users/show'),

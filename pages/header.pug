@@ -2,6 +2,8 @@ header
   h1 notTwitter
   if signedIn
     span= `Hello, ${username}`
+    form(action='/logout' method='post')
+      input(type='submit' value='log out')
   else
     a(href='/login') log in
     = ` | `
