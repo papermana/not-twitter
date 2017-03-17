@@ -72,6 +72,30 @@ describe(`/newmessage`, () => {
     });
   });
 
+  test(`Redirects to '/' if the message is more than 140 characters long`, () => {
+    const originalMessages = [
+      {author: 'foo', body: 'body1'},
+      {author: 'bar', body: 'body2'},
+    ];
+    const characters150 = '012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789';
+    const newMessage = {author: 'foo', body: characters150};
+
+    return getEnv({username: 'foo'})
+    .then(mockMessages(originalMessages))
+    .then(({app, db}) => {
+      return doRequest(app)
+      .send(newMessage)
+      .then((response) => {
+        expect(response.header.location).toBe('/');
+
+        return getMessages(db)
+        .then((messages) => {
+          expect(messages).toEqual(originalMessages);
+        });
+      });
+    });
+  });
+
   test(`Creates a new message for a given user, and redirects to '/' if user credentials are correct`, () => {
     const originalMessages = [
       {author: 'foo', body: 'body1'},
