@@ -3,6 +3,6 @@ mixin message(author, body, id, userIsAuthor)
     .message__header
       p.message__author= author
       if userIsAuthor
-        form.form(action=`/messages/${_id}?_method=delete` method='post')
+        form.form(action=`/messages/${id}?_method=delete` method='post')
           button.form__submit.form__submit--small-text(type='submit') delete
     p.message__body= body
