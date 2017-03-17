@@ -1,23 +1,20 @@
 extends layout.pug
 
 block content
-  include header.pug
-  main
+  include _message
+  
+  main.main.index-page
+    .main__caption
+      if signedIn
+        p= `hello! ${username}`
+      else
+        p hello!
+      p this is not Twitter. you know what to do
     if signedIn
-      p= `hello! ${username}`
-    else
-      p hello!
-    p this is not Twitter. you know what to do
-    if signedIn
-      form(action='/newmessage?_method=post' method='post')
-        input(name='body' type='text' max-length=140)
-        input(type='submit')
+      form.form(action='/newmessage?_method=post' method='post')
+        input.form__input.form__input--full-width(name='body' type='text' max-length=140)
+        button.form__submit go
     if messages
-      for m in messages
-        div
-          p= m.author
-          if m.author == username
-            form(action=`/messages/${m._id}?_method=delete` method='post')
-              button(type='submit') X
-          p= m.body
-          br
+      .main__message-list
+        for m in messages
+          +message(m.author, m.body, m._id, m.author == username)

@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: $text-color-body;
+}
+
+a {
+  color: $text-color-body;
+
+  &:hover {
+    color: $text-color-body--light;
+  }
+}

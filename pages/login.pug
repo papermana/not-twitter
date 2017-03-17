@@ -1,9 +1,10 @@
 extends layout.pug
 
 block content
-  include header.pug
-  p get in
-  form(action='/login' method='post')
-    input(type='text' name='username' placeholder='name')
-    input(type='password' name='password' placeholder='password')
-    input(type='submit')
+  main.main
+    .main__caption
+      p get in
+    form.form(action='/login' method='post')
+      input.form__input(type='text' name='username' placeholder='name')
+      input.form__input(type='password' name='password' placeholder='password')
+      button.form__submit go

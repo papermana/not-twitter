@@ -1,9 +1,11 @@
 extends layout.pug
 
 block content
-  include header.pug
-  p make an account
-  form(action='/newuser' method='post')
-    input(type='text' name='username' placeholder='name')
-    input(type='password' name='password' placeholder='password')
-    input(type='submit')
+  main.main
+    .main__caption
+      p make an account
+    p password must be at least 8 chars and have letters and something else
+    form.form(action='/newuser' method='post')
+      input.form__input(type='text' name='username' placeholder='name')
+      input.form__input(type='password' name='password' placeholder='password')
+      button.form__submit go

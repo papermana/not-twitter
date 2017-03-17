@@ -1,10 +1,15 @@
-header
-  h1 notTwitter
-  if signedIn
-    span= `Hello, ${username}`
-    form(action='/logout' method='post')
-      input(type='submit' value='log out')
-  else
-    a(href='/login') log in
-    = ` | `
-    a(href='/signup') make an account
+header.header
+  .header__content
+    h1
+      a.header__logo(href='/') notTwitter
+    if signedIn
+      .header__user-area
+        span= `Hello, ${username}`
+        = ' | '
+        form.form(action='/logout' method='post')
+          input.form__submit(type='submit' value='log out')
+    else
+      .header__user-area
+        a(href='/login') log in
+        = ' | '
+        a(href='/signup') make an account

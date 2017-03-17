@@ -1,9 +1,11 @@
 extends ../layout.pug
 
 block content
-  include ../header.pug
-  h2= username
-  ul
-    each message in messages
-      li
-        p= message.body
+  include ../_message
+  
+  main.main
+    .main__caption
+      p= username
+    .main__message-list
+      for m in messages
+        +message(m.author, m.body, m._id, m.author == username)

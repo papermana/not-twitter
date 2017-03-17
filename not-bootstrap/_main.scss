@@ -1,0 +1,14 @@
+.main {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  overflow: auto;
+
+  &__caption {
+    font-size: 20px;
+  }
+
+  &__message-list {
+    overflow: auto;
+  }
+}

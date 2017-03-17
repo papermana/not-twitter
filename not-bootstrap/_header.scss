@@ -1,0 +1,29 @@
+.header {
+  background-color: #79c6e6;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    height: 75px;
+    margin: auto;
+    padding: 0 25px;
+  }
+
+  &__logo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: $text-color-headings;
+    text-decoration: none;
+
+    &::hover {
+      color: inherit;
+    }
+  }
+
+  &__user-area {
+    display: flex;
+  }
+}
