@@ -8,8 +8,10 @@
     "node": "7.7.2"
   },
   "scripts": {
+    "scss": "node-sass not-bootstrap/index.scss -o public/css",
+    "scss-watch": "yarn run scss -- -wr",
     "start": "nodemon app/index.js",
-    "production": "node app/index.js",
+    "production": "yarn run scss && node app/index.js",
     "db": "mongod --dbpath=db/ --port 27017",
     "test-db": "mongod --dbpath=db-test/ --port 27018",
     "test": "jest --runInBand --forceExit",
