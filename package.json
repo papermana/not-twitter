@@ -22,6 +22,7 @@
     "express-session": "^1.15.1",
     "method-override": "^2.3.7",
     "mongodb": "^2.2.24",
+    "node-sass": "^4.5.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-beta11"
